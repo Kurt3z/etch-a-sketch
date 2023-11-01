@@ -1,4 +1,4 @@
-const SKETCH_AREA_WIDTH = 580;
+const SKETCH_AREA_WIDTH = 520;
 const sketchArea = document.querySelector('.grid');
 const rowSizeSelection = document.querySelector('#row-size');
 const displayRowSizeSelection = document.querySelectorAll('.selected');
