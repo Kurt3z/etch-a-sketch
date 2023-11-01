@@ -1,13 +1,25 @@
 const SKETCH_AREA_WIDTH = 680;
 const sketchArea = document.querySelector('.grid');
 const createAreaBtn = document.querySelector('#create');
+const rowSizeSelection = document.querySelector('#row-size');
+const displayRowSizeSelection = document.querySelectorAll('.selected');
+console.log(displayRowSizeSelection);
 
-let rowSize = 16; // Starting... User will be able to choose
-console.log(SKETCH_AREA_WIDTH / rowSize);
+rowSizeSelection.value = 16;
+let rowSize = 16; // Default value if user does not input a size
+
+rowSizeSelection.addEventListener('input', function (e) {
+    rowSize = e.target.value;
+
+    displayRowSizeSelection.forEach(selection => {
+        selection.textContent = e.target.value;
+    });
+});
 
 createAreaBtn.addEventListener('click', function () {
+    deletePreviousSketchArea(sketchArea);
+    console.log(rowSize);
     let gridArea = rowSize * rowSize;
-    console.log(gridArea);
 
     for (let i = 0; i < gridArea; i++) {
         const square = document.createElement('div');
@@ -17,3 +29,9 @@ createAreaBtn.addEventListener('click', function () {
         sketchArea.appendChild(square);
     }
 });
+
+function deletePreviousSketchArea(parentElement) {
+    while (parentElement.firstChild) {
+        parentElement.removeChild(parentElement.firstChild);
+    }
+}

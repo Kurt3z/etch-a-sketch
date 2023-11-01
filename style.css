@@ -11,6 +11,23 @@ body {
     gap: 150px;
 }
 
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+label[for='row-size'] {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label[for='row-size'] > p {
+    align-self: center;
+    font-size: 24px;
+}
+
 .grid {
     width: 680px;
     height: 680px;
