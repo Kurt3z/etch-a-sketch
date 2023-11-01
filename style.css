@@ -45,6 +45,7 @@ label[for='row-size'] > p {
 
 .grid-container > p {
     font-size: 30px;
+    color: #a8a8a8;
     text-align: center;
 }
 

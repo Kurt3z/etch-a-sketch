@@ -23,6 +23,7 @@ rowSizeSelection.addEventListener('input', function (e) {
 });
 
 createAreaBtn.addEventListener('click', function () {
+    toolInUse.textContent = 'Please select a tool to start drawing...';
     deletePreviousSketchArea(sketchArea);
     let gridArea = rowSize * rowSize;
 
