@@ -8,6 +8,9 @@ const toolInUse = document.querySelector('#tool');
 const createAreaBtn = document.querySelector('#create');
 const clearAreaBtn = document.querySelector('#clear');
 const pencilBtn = document.querySelector('#pencil');
+const rainbowBtn = document.querySelector('#rainbow');
+const darkerBtn = document.querySelector('#darker');
+console.log(darkerBtn);
 const eraserBtn = document.querySelector('#eraser');
 let squaresList;
 
@@ -61,6 +64,35 @@ pencilBtn.addEventListener('click', function () {
     }
 });
 
+rainbowBtn.addEventListener('click', function () {
+    toolInUse.textContent = '🌈';
+    if (squaresList) {
+        squaresList.forEach(square => {
+            square.addEventListener('mouseenter', function (e) {
+                const hexColor = generateRandomHexColor();
+                e.target.style.backgroundColor = hexColor;
+            });
+        });
+    }
+});
+
+darkerBtn.addEventListener('click', function () {
+    toolInUse.textContent = '🌚';
+    let lightness = 100;
+    if (squaresList) {
+        squaresList.forEach(square => {
+            square.addEventListener('mouseenter', function (e) {
+                e.target.style.backgroundColor = `hsl(0, 0%, ${lightness}%)`;
+                lightness -= 10;
+                console.log(lightness);
+                if (lightness === 0) {
+                    lightness = 100;
+                }
+            });
+        });
+    }
+});
+
 eraserBtn.addEventListener('click', function () {
     toolInUse.textContent = '🧽';
     if (squaresList) {
@@ -76,4 +108,17 @@ function deletePreviousSketchArea(parentElement) {
     while (parentElement.firstChild) {
         parentElement.removeChild(parentElement.firstChild);
     }
+}
+
+function generateRandomChar(length) {
+    return Math.floor(Math.random() * length);
+}
+
+function generateRandomHexColor() {
+    const hexCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+    let hexColor = '#';
+    for (let i = 0; i < 6; i++) {
+        hexColor += hexCharacters[generateRandomChar(hexCharacters.length)];
+    }
+    return hexColor;
 }
