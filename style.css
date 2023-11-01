@@ -40,6 +40,12 @@ label[for='row-size'] > p {
     border: 10px solid black;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.grid-container > p {
+    font-size: 30px;
+    text-align: center;
 }
 
 .square {

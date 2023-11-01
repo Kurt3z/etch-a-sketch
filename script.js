@@ -2,6 +2,9 @@ const SKETCH_AREA_WIDTH = 680;
 const sketchArea = document.querySelector('.grid');
 const rowSizeSelection = document.querySelector('#row-size');
 const displayRowSizeSelection = document.querySelectorAll('.selected');
+const toolInUse = document.querySelector('#tool');
+
+// Buttons
 const createAreaBtn = document.querySelector('#create');
 const clearAreaBtn = document.querySelector('#clear');
 const pencilBtn = document.querySelector('#pencil');
@@ -47,6 +50,7 @@ clearAreaBtn.addEventListener('click', function () {
 });
 
 pencilBtn.addEventListener('click', function () {
+    toolInUse.textContent = '✏️';
     if (squaresList) {
         squaresList.forEach(square => {
             square.addEventListener('mouseenter', function (e) {
@@ -57,6 +61,7 @@ pencilBtn.addEventListener('click', function () {
 });
 
 eraserBtn.addEventListener('click', function () {
+    toolInUse.textContent = '🧽';
     if (squaresList) {
         squaresList.forEach(square => {
             square.addEventListener('mouseenter', function (e) {
