@@ -1,9 +1,11 @@
 const SKETCH_AREA_WIDTH = 680;
 const sketchArea = document.querySelector('.grid');
-const createAreaBtn = document.querySelector('#create');
-const clearAreaBtn = document.querySelector('#clear');
 const rowSizeSelection = document.querySelector('#row-size');
 const displayRowSizeSelection = document.querySelectorAll('.selected');
+const createAreaBtn = document.querySelector('#create');
+const clearAreaBtn = document.querySelector('#clear');
+const pencilBtn = document.querySelector('#pencil');
+const eraserBtn = document.querySelector('#eraser');
 let squaresList;
 
 rowSizeSelection.value = 16;
@@ -34,18 +36,32 @@ createAreaBtn.addEventListener('click', function () {
      * it would always return an empty NodeList
      * */
     squaresList = document.querySelectorAll('.square');
-
-    squaresList.forEach(square => {
-        square.addEventListener('mouseenter', function (e) {
-            e.target.style.backgroundColor = '#000';
-        });
-    });
 });
 
 clearAreaBtn.addEventListener('click', function () {
     if (squaresList) {
         squaresList.forEach(square => {
             square.style.backgroundColor = '#fff';
+        });
+    }
+});
+
+pencilBtn.addEventListener('click', function () {
+    if (squaresList) {
+        squaresList.forEach(square => {
+            square.addEventListener('mouseenter', function (e) {
+                e.target.style.backgroundColor = '#000';
+            });
+        });
+    }
+});
+
+eraserBtn.addEventListener('click', function () {
+    if (squaresList) {
+        squaresList.forEach(square => {
+            square.addEventListener('mouseenter', function (e) {
+                e.target.style.backgroundColor = '#fff';
+            });
         });
     }
 });
