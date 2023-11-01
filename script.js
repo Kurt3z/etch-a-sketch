@@ -10,7 +10,6 @@ const clearAreaBtn = document.querySelector('#clear');
 const pencilBtn = document.querySelector('#pencil');
 const rainbowBtn = document.querySelector('#rainbow');
 const darkerBtn = document.querySelector('#darker');
-console.log(darkerBtn);
 const eraserBtn = document.querySelector('#eraser');
 let squaresList;
 
@@ -84,7 +83,6 @@ darkerBtn.addEventListener('click', function () {
             square.addEventListener('mouseenter', function (e) {
                 e.target.style.backgroundColor = `hsl(0, 0%, ${lightness}%)`;
                 lightness -= 10;
-                console.log(lightness);
                 if (lightness === 0) {
                     lightness = 100;
                 }
