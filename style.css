@@ -84,11 +84,12 @@ button:hover {
 .options {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 22px;
 }
 
 h2 {
     align-self: center;
+    font-size: 18px;
 }
 
 label[for='row-size'] {
