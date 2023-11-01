@@ -38,7 +38,7 @@ footer {
 }
 
 ion-icon {
-    margin-bottom: -4px;
+    margin-bottom: -2.8px;
     color: var(--text-color);
     transform: 0.5s;
 }
