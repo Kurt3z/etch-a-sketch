@@ -53,7 +53,7 @@ clearAreaBtn.addEventListener('click', function () {
 });
 
 pencilBtn.addEventListener('click', function () {
-    toolInUse.textContent = '✏️';
+    toolInUse.textContent = '🖊️';
     if (squaresList) {
         squaresList.forEach(square => {
             square.addEventListener('mouseenter', function (e) {
